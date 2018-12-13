@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/h-ui/css/H-ui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/h-ui.admin/css/H-ui.admin.css"/>
+  <link rel="stylesheet" type="text/css" href="__LIB__/Hui-iconfont/1.0.7/iconfont.css"/>
+  <link rel="stylesheet" type="text/css" href="__LIB__/icheck/icheck.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/h-ui.admin/skin/default/skin.css" id="skin"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/h-ui.admin/css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/app.css"/>
+  <link rel="stylesheet" type="text/css" href="__LIB__/icheck/icheck.css"/>
+</head>
+<body>
+	<h1 style="text-align: center;">你的个人信息</h1>
+	<div style="text-align: center;">修改信息请到右上角</div>
+	<table class="table table-border table-bordered table-hover table-bg mt-20">
+	    <thead>
+	    <tr class="text-c">
+	      <th width="40">姓名：</th>
+	      <th width="200">账号：</th>
+	      <th width="70">登陆次数：</th>
+	      <th width="70">邮箱：</th>
+	      <th width="70">创建时间：</th>
+	    </tr>
+	    </thead>
+	    <tbody id="tbody">
+	    	<tr class="text-c">
+	    		<td>{$userInfo.realname}</td>
+	    		<td>{$userInfo.account}</td>
+	    		<td>{$userInfo.login_count}</td>
+	    		<td>{$userInfo.email}</td>
+	    		<td>{$userInfo.create_time|date="Y年m月d日",###}</td>
+	    	</tr>
+	    </tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,115 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <form class="form form-horizontal" id="form" method="post" action="{:\\think\\Request::instance()->baseUrl()}">
+        <input type="hidden" name="id" value="{:isset($vo.id)?$vo.id:''}">
+        <input type="hidden" name="modelid" value="{:isset($vo.modelid)?$vo.modelid:''}">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">字段类型：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <div class="select-box">
+                    <select name="formtype" class="select" datatype="*" nullmsg="请选择字段类型">
+                        <option value="">请选择字段类型</option>
+                        <?php if(is_array($fileType) || $fileType instanceof \think\Collection): if( count($fileType)==0 ) : echo "" ;else: foreach($fileType as $key=>$type): ?>
+                        <option value="<?=$key; ?>"><?=$type; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">字段名：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="字母、数字、下划线组成" name="field" value="{$vo.field ?? ''}"  datatype="*2-30" nullmsg="请输入字段名">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">字段说明：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="字段说明" name="name" value="{$vo.name ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">字段提示：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <textarea class="textarea" placeholder="" name="tips" onKeyUp="textarealength(this, 100)">{$vo.tips ?? ''}</textarea>
+                <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">表单样式名：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="表单样式名" name="css" value="{$vo.css ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">字符串长度取值范围最小值：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="字符串长度取值范围最小值" name="minlength" value="{$vo.minlength ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">字符串长度取值范围最大致：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="字符串长度取值范围最大致" name="maxlength" value="{$vo.maxlength ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">数据校验规则：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="数据校验规则" name="pattern" value="{$vo.pattern ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">错误提示：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="错误提示" name="errortips" value="{$vo.errortips ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">值唯一：</label>
+            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
+                <div class="radio-box">
+                    <input type="radio" name="isunique" id="isunique1"  value="1">
+                    <label for="isunique1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="isunique" id="isunique0" value="0" checked="checked">
+                    <label for="isunique0">否</label>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">是否可用：</label>
+            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
+                <div class="radio-box">
+                    <input type="radio" name="disabled" id="disabled-0" value="0" checked="checked">
+                    <label for="disabled-0">是</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="disabled" id="disabled-1" value="1">
+                    <label for="disabled-1">否</label>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary radius">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
+                <button type="button" class="btn btn-default radius ml-20" onClick="layer_close();">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+{/block}

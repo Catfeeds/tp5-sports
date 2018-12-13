@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>你的柱状图</title>
+  <script type="text/javascript" src="__LIB__/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+  你的柱状图<a href="{:\\think\\Url::build('add')}">添加柱状图</a>
+  <script type="text/javascript">
+    $(function(){
+      $.get("{:\\think\\Url::build('index')}",{name:''},function(res){
+              
+        if (res.code == 1) {
+          if (res.data.length > 0) {
+            for (var i = 0; res.data.length > i ; i++) {
+              // var _div = createDom(i);
+              // $('body').append(_div);
+              // createEcharts(res.data[i], i);
+            }
+          }
+          
+        } else {
+          // alert('上传失败了');
+        }
+      });
+    })
+  </script>
+</body>
+</html>

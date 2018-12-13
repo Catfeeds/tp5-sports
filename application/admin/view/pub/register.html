@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="__ROOT__/favicon.ico" >
+    <link rel="Shortcut Icon" href="__ROOT__/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__LIB__/html5.js"></script>
+    <script type="text/javascript" src="__LIB__/respond.min.js"></script>
+    <script type="text/javascript" src="__LIB__/PIE_IE678.js"></script>
+    <![endif]-->
+    <link href="__STATIC__/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="__STATIC__/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="__LIB__/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>后台注册 - {$Think.config.site.title}</title>
+    <meta name="keywords" content="{$Think.config.site.keywords}">
+    <meta name="description" content="{$Think.config.site.keywords}">
+    <style type="text/css">
+        .loginBox-new {
+            background: rgba(0,0,0,.1);
+            border: 1px solid #ddd;
+            height: 500px;
+            margin-top: -250px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>PHP大数据可视化平台 {$Think.config.site.version}</h1>
+</div>
+<div class="loginWraper">
+    <div id="loginform" class="loginBox loginBox-new">
+        <form class="form form-horizontal" action="{:\\think\\Url::build('register')}" method="post" id="form">
+            <div class="row cl">
+                <label class="form-label col-xs-3 col-ms-3" style="line-height: 36px;font-size: 20px;">帐号</label>
+                <div class="formControls col-xs-6 col-ms-6">
+                    <input name="account" type="text" placeholder="帐号" class="input-text size-L" datatype="*" nullmsg="请填写帐号">
+                </div>
+                <div class="col-xs-3 col-ms-3"></div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3 col-ms-3" style="line-height: 40px;font-size: 20px;">密码</label>
+                <div class="formControls col-xs-6 col-ms-6">
+                    <input name="password" type="password" placeholder="密码" class="input-text size-L" datatype="*" nullmsg="请填写密码">
+                </div>
+                <div class="col-xs-3 col-ms-3"></div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3 col-ms-3" style="line-height: 40px;font-size: 20px;">确认密码</label>
+                <div class="formControls col-xs-6 col-ms-6">
+                    <input name="repassword" type="repassword" placeholder="确认密码" class="input-text size-L" datatype="*" nullmsg="请填写密码">
+                </div>
+                <div class="col-xs-3 col-ms-3"></div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3 col-ms-3" style="line-height: 40px;font-size: 20px;">邮箱</label>
+                <div class="formControls col-xs-6 col-ms-6">
+                    <input name="email" type="email" placeholder="邮箱" class="input-text size-L" datatype="*" nullmsg="请填写密码">
+                </div>
+                <div class="col-xs-3 col-ms-3"></div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3 col-ms-3" style="line-height: 40px;font-size: 20px;">姓名</label>
+                <div class="formControls col-xs-6 col-ms-6">
+                    <input name="realname" type="realname" placeholder="姓名" class="input-text size-L" datatype="*" nullmsg="请填写密码">
+                </div>
+                <div class="col-xs-3 col-ms-3"></div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3 col-ms-3" style="line-height: 40px;font-size: 20px;">电话</label>
+                <div class="formControls col-xs-6 col-ms-6">
+                    <input name="mobile" type="mobile" placeholder="电话" class="input-text size-L" datatype="*" nullmsg="请填写密码">
+                </div>
+                <div class="col-xs-3 col-ms-3"></div>
+            </div>
+            
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <input name="" type="submit" class="btn btn-success radius size-L mr-20" value="&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;">
+                    <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;重&nbsp;&nbsp;&nbsp;&nbsp;置&nbsp;">
+                    <a class="btn btn-default radius size-L ml-20" href="{:\\think\\Url::build('login')}">
+                        返回登陆
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="footer">Copyright demo by {$Think.config.site.name} {$Think.config.site.version}</div>
+<script type="text/javascript" src="__LIB__/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__LIB__/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__LIB__/Validform/5.3.2/Validform.min.js"></script>
+<script>
+    $(function () {
+        $("#captcha").click(function () {
+            $(this).attr("src","{:captcha_src()}?t="+new Date().getTime())
+        });
+
+        $("#form").Validform({
+            tiptype:2,
+            ajaxPost:true,
+            showAllError:true,
+            callback:function(ret){
+            	console.log('哈哈哈哈');
+                console.log(ret);
+                if (ret.code == 0){
+                    layer.alert(ret.msg);
+                } else {
+                    layer.msg("注册成功！，请返回登陆");
+                    location.href = '{$Request.get.callback ?: \\think\\Url::build("Pub/login")}';
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>
