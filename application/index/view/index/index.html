@@ -1,69 +1,5 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>中国篮球协会官方网站</title>
-<link type="text/css" rel="stylesheet" href="http://images.sport.org.cn/new/bk/style.css" />
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="http://images.sport.org.cn/new/bk/ie.css" />
-<![endif]-->
-<meta name="Keywords" content="中国篮球协会,中国篮协,CBA" />
-<meta name="Description" content="中国篮球协会官方网站" />
-<script src="http://js.sports.cn/manjs/stab.js" type="text/javascript"></script>
-</head>
-<body>
-<style type="text/css">
-	#top_logo {
-		background:#fff;
-	}
-	#top_logo td {
-		font-size:12px;
-		line-height:16px;
-		padding:2px 5px;
-	}
-	#top_logo li {
-		padding:7px 12px 4px 12px;
-		display:block;
-		float:right;
-	}
-	#top_logo li a {
-		
-		background-repeat:no-repeat;
-		background-position:left center;
-	}
-	#top_logo a {
-		color:#666;
-		text-decoration:none;
-	}
-	#top_logo a:hover {
-		color:#930;
-		text-decoration:none;
-	}
-	#top_logo #logo_gochinago a {
-		background-image:url(http://images.sport.org.cn/logoimages/l_04.gif);
-	}
-	#top_logo #logo_sports a {
-		background-image:url(http://images.sport.org.cn/logoimages/l_03.gif);
-	}
-	#top_logo #logo_olympic a {
-		background-image:url(http://images.sport.org.cn/logoimages/l_02.gif);
-	}
-	#top_logo li#logo_sportsorg {
-		float:left;
-		width:85px;
-	}
-	#top_logo li#logo_sportsorg a {
-		width:85px;
-		height:27px;
-		padding:0;
-		background:url(http://images.sport.org.cn/logoimages/l_01.gif) no-repeat center center;
-	}
-	#top_logo li#logo_sportsorg b {
-		display:none;
-	}
-</style>
-<div id="top_logo">
+{extend name="public/base" /}
+<!-- <div id="top_logo">
 	<table width="760" cellspacing="0" cellpadding="0" align="center">
 		<tr>
 			<td width='159'><a href="http://www.sport.org.cn/" target="_blank">中华全国体育总会官方网站</a></td>
@@ -74,126 +10,14 @@
 			</ul></td>
 		</tr>
 	</table>
-</div>
+</div> -->
+{block name="content"}
 <div id="box">
-	<div class="zone1" id="header" title="中国篮球协会官方网站">
-		<img src="http://images.sport.org.cn/new/bk/1_02.jpg" alt="" />
-		<img src="http://images.sport.org.cn/new/bk/1_03.jpg" alt="" />
-		<img src="http://images.sport.org.cn/new/bk/1_04.jpg" alt="" />
-		<img src="http://images.sport.org.cn/new/bk/1_05.jpg" alt="" />
-	</div>
-	<div class="zone1">
-		<div class="zone" id="nav">
-			<ul>
-				<li id="nav1"><a href="http://www.basketball.org.cn/" title="首页"><em>首页</em></a></li>
-				<li id="nav2"><a href="http://basketball.sport.org.cn/Association/index.html" title="关于协会"><em>关于协会</em></a></li>
-				<li id="nav3"><a href="http://basketball.sport.org.cn/team/list.html" title="热点新闻"><em>热点新闻</em></a></li>
-				<li id="nav4"><a href="http://basketball.sport.org.cn/League/list.html" title="联赛风云"><em>联赛风云</em></a></li>
-				<li id="nav5"><a href="http://basketball.sport.org.cn/Database/index.html" title="资料库"><em>资料库</em></a></li>
-				<li id="nav6"><a href="http://bbs.sports.cn" title="篮球论坛" target="_blank"><em>篮球论坛</em></a></li>
-				<li id="nav7"><a href="http://basketball.sport.org.cn/team/list.html" title="中国队新闻" target="_blank"><em>中国队新闻</em></a></li>
-			</ul>
-		</div>
-	</div>
+	{include file="public/header" /}
+
 	<div class="zone">
-		<div class="first" id="left">
-			<div>
-				<img src="http://images.sport.org.cn/new/bk/1_09.jpg" alt="明星官网" />
-			</div>
+		{include file="public/left_nav" /}
 
-			<div class="space1"></div>
-				<span id="bk_071113_1" name="jsname">
-					<script language="JavaScript" type="text/javascript" src="http://js.sport.org.cn/manjs/bk_071113_1.js"></script>
-				</span>
-			<div class="space1"></div>
-			<div>
-				<img src="http://images.sport.org.cn/new/bk/1_10.jpg" alt="热点专题" />
-			</div>
-
-			<div class="space1"></div>
-
-			<div class="bg1">
-				<div class="space3"></div>
-				<span id="bk_071113_2" name="jsname">
-					<script language="JavaScript" type="text/javascript" src="http://js.sport.org.cn/manjs/bk_071113_2.js"></script>
-				</span>				
-				<div class="space3"></div>
-				<div class="space1"></div>
-			</div>
-
-			<div class="space1"></div>
-
-			<div class="bg1">
-				<div class="space2"></div>
-				<div class="space1"></div>
-				<div>
-					<img src="http://images.sport.org.cn/new/bk/1_15.jpg" alt="站内搜索" hspace="16" /></a></div>
-				<div class="space2"></div>
-				<div align="center">
-					<form id="sogouform" name="sogouform" method="post" action="http://www.sogou.com/web" target="_blank">
-						<label class="txt1">
-						<input name="query" type="text" id="query" size="12" />
-						</label>
-						<label class="btn1">
-						<input type="submit" name="submit" id="submit" value="" />
-						</label>
-						<input type="hidden" name="insite" value="basketball.org.cn" />
-						<input type="hidden" name="pid" value="36001404" />
-						<input type="hidden" name="oemlogo" value="http://images.sports.cn/sports/i/200704/1_33.gif" />
-					</form>
-				</div>
-				<div class="space3"></div>
-				<div class="space1"></div>
-			</div>
-			<div class="space1"></div>
-			<div class="bg1">
-				<div class="space2"></div>
-				<div class="space1"></div>
-				<div><img src="http://images.sport.org.cn/new/bk/1_17.jpg" alt="资料库" hspace="20" /></a></div>
-				<div class="space1"></div>
-				<div class="zone2">
-					<h1 class="c01"><a href="http://basketball.sport.org.cn/Database/Rules/list.html" title="篮球规则">篮球规则</a></h1>
-					<div class="space2"></div>
-					<ul class="tlist1 c02">
-						<li><a href="http://basketball.sport.org.cn/Database/Rules/2010-10-20/331050.html" title="篮球三对三竞赛规则">篮球三对三竞赛规则</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/Rules/2004-09-03/5928.html" title="NBA和FIBA规则主要区别">NBA和FIBA规则主要区别</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/Rules/2004-09-03/5927.html" title="FIBA2000年篮球规则(6)">FIBA2000年篮球规则(6)</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/Rules/2004-09-03/5926.html" title="FIBA2000年篮球规则(5)">FIBA2000年篮球规则(5)</a></li>
- 
-					</ul>
-					<div class="space1"></div>
-					<div class="space1"></div>
-					<h1 class="c01"><a href="http://basketball.sport.org.cn/Database/Knowledge/list.html" title="基础知识">基础知识</a></h1>
-					<div class="space2"></div>
-					<ul class="tlist1 c02">
-						<li><a href="http://basketball.sport.org.cn/Database/Knowledge/2005-01-19/5891.html" title="NBA与中国篮球">NBA与中国篮球</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/Knowledge/2005-01-12/5890.html" title="NBA现役10大扣将">NBA现役10大扣将</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/Knowledge/2004-12-29/5889.html" title="NBA十大怪人怪事">NBA十大怪人怪事</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/Knowledge/2004-12-29/5888.html" title="NBA其它历史纪录">NBA其它历史纪录</a></li>
- 
-					</ul>
-					<div class="space1"></div>
-					<div class="space1"></div>
-					<h1 class="c01"><a href="#" title="球队指南">球队指南</a></h1>
-					<div class="space2"></div>
-					<ul class="tlist1 c02">
-						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144738.html" title="浙江远东太平洋百货女篮">浙江远东太平洋百货女篮</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144737.html" title="山东体育彩票女篮">山东体育彩票女篮</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144736.html" title="福建南安女篮">福建南安女篮</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144735.html" title="河南豫光金铅">河南豫光金铅</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144734.html" title="北京金隅长城">北京金隅长城</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144730.html" title="上海东方八爪鱼">上海东方八爪鱼</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144713.html" title="广东日之泉女篮">广东日之泉女篮</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-15/144712.html" title="沈部三洋电梯女篮">沈部三洋电梯女篮</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-14/144562.html" title="哈药集团女篮">哈药集团女篮</a></li>
- 						<li><a href="http://basketball.sport.org.cn/Database/WCBA/2007-11-14/144561.html" title="辽宁衡业女篮">辽宁衡业女篮</a></li>
- 
-					</ul>
-					<div class="space1"></div>
-					<div class="space1"></div>
-				</div>
-			</div>
-		</div>
 		<div class="first" id="right">
 			<div class="zone1">
 				<div class="zone bg1">
@@ -369,22 +193,12 @@
 					<div class="space3"></div>
 					<div><img src="http://images.sport.org.cn/new/bk/1_27.jpg" alt="相关链接" hspace="25" /></div>
 					<span id="bk_071113_3" name="jsname">
-					<script language="JavaScript" type="text/javascript" src="http://js.sport.org.cn/manjs/bk_071113_3.js"></script>
-</span>
+						<script language="JavaScript" type="text/javascript" src="http://js.sport.org.cn/manjs/bk_071113_3.js"></script>
+					</span>
 					<div class="space1"></div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="zone footer">
-	    <div><a href="http://www.sports.cn/about/company.html" target="_blank">关于华奥星空</a> - <a href="http://www.sports.cn/about/privacy.html" target="_blank">隐私保护</a> - <a href="http://www.sports.cn/about/ads.html" target="_blank">广告服务</a> - <a href="http://www.sports.cn/about/career.html" target="_blank">招聘信息</a> - <a href="http://www.sports.cn/about/contactus.html" target="_blank">联系我们</a><br />
-	        中国篮球协会版权所有&nbsp;&nbsp;本网站由<a href="http://www.sports.cn/" target="_blank">华奥星空</a>(北京)信息技术有限公司提供制作及技术支持<br />
-	        <a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202004030500005" target="_blank"><img src="http://images.sports.cn/sports/images/biaoshi.gif" alt="" width="40" height="48" /></a>ICP经营许可证：<a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证030713号</a> 京公网安备11010102000807号<br />
-	        网上传播视听节目许可证 <a href="http://images.sports.cn/sports/i/v_xuke.gif">编号：0105094</a> 发证机关：国家广播电影电视总局<br />
-	        客服及报障电话：<span class="en">4008102008</span> 客服及报障邮箱：<a href="mailto:operationcenter@sports.cn" class="en">operationcenter@sports.cn</a></div><script type="text/javascript">
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fda6b0cca99fa20227ca77f8cd91493a5' type='text/javascript'%3E%3C/script%3E"));
-</script>	
 	</div>
 </div>
 <script type="text/javascript">
@@ -395,37 +209,8 @@ var stab1=new stab("label_a","content_a");
 <span name="adid" id="4"><script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
 <script type="text/javascript">BAIDU_CLB_fillSlot("162078");</script></span>
 <style type="text/css">
-*{margin:0; padding:0; list-style:none;}
-.stye1e1e1,.stye1e1e1 a,.stye1e1e1 a:hover,#msg_win b a{color:#333;}
-    #msg_win{border:1px solid #b82323;background:#fff;width:310px;position:absolute;margin:0px;display:none;overflow:hidden;z-index:99; padding-bottom:10px;}
-    #msg_win .icos{position:absolute;right:2px;z-index:9; top:0;}
-    .icos a{float:left;color:#fff;margin:1px;text-align:center;text-decoration:none;font-family:webdings;line-height:32px;}
-    .icos a:hover{color:#fff; line-height:32px;}
-    #msg_title{border-bottom:1px solid #b82323;color:#fff;height:32px;line-height:32px;text-indent:10px; font-size:14px; font-weight:bold; background:url(http://images.sports.cn/2013-01-23/tc/bb.gif) no-repeat;}
-    #msg_content{width:295px;height:192px;overflow:hidden; padding-left:10px; padding-top:10px;}
-	#msg_content dl{}
-	#msg_content dt{width:120px; float:left;}
-	#msg_content dd,#msg_content li{background:url(http://images.sports.cn/2013-01-23/icon_v1.png) no-repeat 8px -46px;}
-	#msg_content dd{width:160px; float:left; font-size:12px; padding-left:15px; background-position:8px -46px; height:27px; line-height:27px;}
-	#msg_content ul{width:300px; display:inline-block;}
-	#msg_content li{font-size:12px; background-position:5px -46px; padding-left:15px; height:27px; line-height:27px;}
-	#msg_content li a,#msg_content dd a{text-decoration:none;}
-	#msg_content li a:hover,#msg_content dd a:hover,#msg_win b a:hover{text-decoration:underline;color:#b40606;}
-	#msg_win b{padding-left:25px; padding-bottom:10px;}
-.weixin{position:fixed;display:block;bottom:280px;width:120px;height:185px;z-index:1000;right:2px;_position:absolute;_margin-top:160px;_top:expression(documentElement.scrollTop+(documentElement.clientHeight-this.offsetHeight)/2);}
-.weixin img{float:left;display:block;}
-.weixin span{float:left;color:#666;cursor:pointer;height:18px;line-height:18px; padding-left:4px;}
+
 </style>
-<div class="weixin" id="wx">
-      <a href="http://www.sports.cn/zhuanti/2014-4-28/index.html" target="_blank"><img src="http://images.sports.cn/2014zt/wx.gif" width="120" height="160" alt="华奥微信公众平台" title="华奥微信公众平台" /></a>
-      <span onclick="document.getElementById('wx').style.display='none';">关闭</span>
-  </div>
-<div id="msg_win" style="display:block;top:10px;visibility:visible;opacity:1;right:2px;">
-    	<div class="icos"><a id="msg_min" title="最小化" href="javascript:void 0">-</a><a id="msg_close" title="关闭" href="javascript:void 0">×</a></div>
-        <div id="msg_title">华奥新闻：</div>
-        <div id="msg_content" class="stye1e1e1">
-            <span id="tcy" name="jsname"><script language="JavaScript" type="text/javascript" src="http://js.sports.cn/manjs/tcy.js"></script></span>
-        </div>
-    </div>
-</body>
-</html>
+
+{include file="public/footer" /}
+{/block}

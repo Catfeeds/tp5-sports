@@ -1,0 +1,69 @@
+#top_logo {
+	background:#fff;
+}
+#top_logo td {
+	font-size:12px;
+	line-height:16px;
+	padding:2px 5px;
+}
+#top_logo li {
+	padding:7px 12px 4px 12px;
+	display:block;
+	float:right;
+}
+#top_logo li a {
+	
+	background-repeat:no-repeat;
+	background-position:left center;
+}
+#top_logo a {
+	color:#666;
+	text-decoration:none;
+}
+#top_logo a:hover {
+	color:#930;
+	text-decoration:none;
+}
+#top_logo #logo_gochinago a {
+	background-image:url(http://images.sport.org.cn/logoimages/l_04.gif);
+}
+#top_logo #logo_sports a {
+	background-image:url(http://images.sport.org.cn/logoimages/l_03.gif);
+}
+#top_logo #logo_olympic a {
+	background-image:url(http://images.sport.org.cn/logoimages/l_02.gif);
+}
+#top_logo li#logo_sportsorg {
+	float:left;
+	width:85px;
+}
+#top_logo li#logo_sportsorg a {
+	width:85px;
+	height:27px;
+	padding:0;
+	background:url(http://images.sport.org.cn/logoimages/l_01.gif) no-repeat center center;
+}
+#top_logo li#logo_sportsorg b {
+	display:none;
+}
+
+*{margin:0; padding:0; list-style:none;}
+.stye1e1e1,.stye1e1e1 a,.stye1e1e1 a:hover,#msg_win b a{color:#333;}
+    #msg_win{border:1px solid #b82323;background:#fff;width:310px;position:absolute;margin:0px;display:none;overflow:hidden;z-index:99; padding-bottom:10px;}
+    #msg_win .icos{position:absolute;right:2px;z-index:9; top:0;}
+    .icos a{float:left;color:#fff;margin:1px;text-align:center;text-decoration:none;font-family:webdings;line-height:32px;}
+    .icos a:hover{color:#fff; line-height:32px;}
+    #msg_title{border-bottom:1px solid #b82323;color:#fff;height:32px;line-height:32px;text-indent:10px; font-size:14px; font-weight:bold; background:url(http://images.sports.cn/2013-01-23/tc/bb.gif) no-repeat;}
+    #msg_content{width:295px;height:192px;overflow:hidden; padding-left:10px; padding-top:10px;}
+	#msg_content dl{}
+	#msg_content dt{width:120px; float:left;}
+	#msg_content dd,#msg_content li{background:url(http://images.sports.cn/2013-01-23/icon_v1.png) no-repeat 8px -46px;}
+	#msg_content dd{width:160px; float:left; font-size:12px; padding-left:15px; background-position:8px -46px; height:27px; line-height:27px;}
+	#msg_content ul{width:300px; display:inline-block;}
+	#msg_content li{font-size:12px; background-position:5px -46px; padding-left:15px; height:27px; line-height:27px;}
+	#msg_content li a,#msg_content dd a{text-decoration:none;}
+	#msg_content li a:hover,#msg_content dd a:hover,#msg_win b a:hover{text-decoration:underline;color:#b40606;}
+	#msg_win b{padding-left:25px; padding-bottom:10px;}
+.weixin{position:fixed;display:block;bottom:280px;width:120px;height:185px;z-index:1000;right:2px;_position:absolute;_margin-top:160px;_top:expression(documentElement.scrollTop+(documentElement.clientHeight-this.offsetHeight)/2);}
+.weixin img{float:left;display:block;}
+.weixin span{float:left;color:#666;cursor:pointer;height:18px;line-height:18px; padding-left:4px;}
