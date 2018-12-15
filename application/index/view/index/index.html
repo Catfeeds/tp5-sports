@@ -19,6 +19,7 @@
 		{include file="public/left_nav" /}
 
 		<div class="first" id="right">
+
 			<div class="zone1">
 				<div class="zone bg1">
 					<table width="100%" cellpadding="0" cellspacing="8">
@@ -33,31 +34,66 @@
 								</div>
 								<div class="zone c01" id="content_a">
 									<div class="child" style="display:none;">
-										<div class="photo"><a href="http://photo.sports.cn/hdslide.jsp?id=41577" target="_blank"><img src="http://images.sport.org.cn/Image/2011/01/05/0851216953.jpg" alt="WCBA第十轮 八一主场87比85险胜浙江" /></a></div>
-										<div class="txt"><a href="http://photo.sports.cn/hdslide.jsp?id=41577" target="_blank" title="WCBA第十轮 八一主场87比85险胜浙江">WCBA第十轮 八一主场87比85险胜浙江</a>2011年1月4日，2010-2011赛季WCBA常规赛进入第十轮角逐</div>
+										{notempty name="hot_news_top"}
+											<div class="photo">
+												<a href="/index/news_detail?id={$hot_news_top.id}" target="_blank">
+													<img src="{$hot_news_top.thumb}" alt="{$hot_news_top.news_name}" />
+												</a>
+											</div>
+											<div class="txt">
+												<a href="/index/news_detail?id={$hot_news_top.id}" target="_blank" title="{$hot_news_top.news_name}">
+													{$hot_news_top.news_name}
+												</a>
+												<div class="txtdesc">
+													{$hot_news_top.newsinfo}
+												</div>
+												
+											</div>
+										{/notempty}
+										
  
 									</div>
 									<div class="child" style="display:none;">
-										<div class="photo"><a href="http://v.sports.cn/lanqiu/xinwen/2010-10-26/2086685.html" target="_blank"><img src="http://images.sport.org.cn/Image/2010/10/26/0935542950.jpg" alt="王治郅谈亚运会 对后辈寄予厚望" /></a></div>
-										<div class="txt"><a href="http://v.sports.cn/lanqiu/xinwen/2010-10-26/2086685.html" target="_blank" title="王治郅谈亚运会 对后辈寄予厚望">王治郅谈亚运会 对后辈寄予厚望</a>华奥星空北京10月25日电(记者 杨宝岩)晚上7点30分，训练局书记刘文雄</div>
- 
+										{notempty name="videos_top"}
+											<div class="photo">
+												<a href="{$videos_top.video_url}" target="_blank">
+													<img src="{$videos_top.video_thumb}" alt="{$videos_top.video_name}" />
+												</a>
+											</div>
+
+											<div class="txt">
+												<a href="{$videos_top.video_url}" target="_blank" title="{$videos_top.video_name}">
+													{$videos_top.video_name}
+												</a>
+												<div class="txtdesc">
+													{$videos_top.video_info}
+												</div>
+											</div>
+ 										{/notempty}
 									</div>
 								</div>
 							</td>
+
 							<td width="14"></td>
-							<td><div class="space1"></div>
-								<div><img src="http://images.sport.org.cn/new/bk/1_18.jpg" alt="官方公告" hspace="5" vspace="5" /></div>
-								<ul class="tlist2 L26">
-									<li><a href="http://basketball.sport.org.cn/association/about/2012-11-02/387531.html" title="男篮U19集训周琦李京龙入选 王怀玉担任主教练">男篮U19集训周琦李京龙入选 王怀玉担任主教练</a></li>
- 									<li><a href="http://basketball.sport.org.cn/association/about/2012-08-24/383564.html" title="关于召开11-12女子篮球甲级联赛总结会的通知">关于召开11-12女子篮球甲级联赛总结会的通知</a></li>
- 									<li><a href="http://basketball.sport.org.cn/association/about/2012-08-22/383414.html" title="全国篮球U17集训赛男子组比赛裁判员安排的通知">全国篮球U17集训赛男子组比赛裁判员安排的通知</a></li>
- 									<li><a href="http://basketball.sport.org.cn/association/about/2012-08-22/383413.html" title="关于举行2012年全国篮球U17集训赛抽签仪式通知">关于举行2012年全国篮球U17集训赛抽签仪式通知</a></li>
- 									<li><a href="http://basketball.sport.org.cn/association/about/2012-05-17/377596.html" title="国家队六小时奔波抵达诸城 四名伤兵缺席明比赛">国家队六小时奔波抵达诸城 四名伤兵缺席明比赛</a></li>
- 									<li><a href="http://basketball.sport.org.cn/association/about/2012-05-17/377595.html" title="范斌满意队员表现 寄语国家队三小将放手拼搏">范斌满意队员表现 寄语国家队三小将放手拼搏</a></li>
- 									<li><a href="http://basketball.sport.org.cn/association/about/2012-05-13/377368.html" title="2012年全国篮球俱乐部青年联赛第二阶段事宜通知">2012年全国篮球俱乐部青年联赛第二阶段事宜通知</a></li>
- 
-								</ul>
+
+							<td>
 								<div class="space1"></div>
+
+								<div class="title-common">热点新闻</div>
+
+
+								<ul class="tlist2 L26">
+									{volist name="hot_news" id="vo"}
+										<li>
+											<a href="/index/news_detail?id={$vo.id}" target="_blank" title="{$vo.news_name}">
+												{$vo.news_name}
+											</a>
+										</li>
+									{/volist}
+								</ul>
+
+								<div class="space1"></div>
+
 								<div><img src="http://images.sports.cn/2007/03/31/1542099671.gif" width="260" height="75" alt="" /></div>
 							</td>
 							<td width="4"></td>
@@ -65,91 +101,113 @@
 					</table>
 				</div>
 			</div>
+
 			<div class="space1"></div>
+			
 			<div class="zone">
 				<div class="zone2">
-					<div class="zone bg1">
+					<div class="zone bg1" style="min-height: 300px;">
 						<div class="space1"></div>
-						<div align="center"><a href="http://basketball.sport.org.cn/team/list.html" title="国字号新闻"><img src="http://images.sport.org.cn/new/bk/1_22.jpg" alt="国字号新闻" vspace="6" /></a></div>
+
+						<div class="title-common-1">比赛</div>
+
 						<div class="zone3 tlist2">
+
 							<ul class="tlist2 L26">
-									<li><a href="http://basketball.sport.org.cn/team/2012-11-22/388586.html" title="邓华德微博恭喜德安东尼 无缘下届男篮主教练">邓华德微博恭喜德安东尼 无缘下届男篮主教练</a></li>
- 									<li><a href="http://basketball.sport.org.cn/team/2012-09-19/385291.html" title="中国国奥男篮亚洲杯大胜澳门 淘汰赛将遭遇日本">中国国奥男篮亚洲杯大胜澳门 淘汰赛将遭遇日本</a></li>
- 									<li><a href="http://basketball.sport.org.cn/team/2012-08-24/383555.html" title="国青U18加时险胜韩国 王哲林再砍全场最高分">国青U18加时险胜韩国 王哲林再砍全场最高分</a></li>
- 									<li><a href="http://basketball.sport.org.cn/team/2012-08-22/383410.html" title="U18亚青赛-代怀博两双王哲林8+7 国青跻身12强">U18亚青赛-代怀博两双王哲林8+7 国青跻身12强</a></li>
- 									<li><a href="http://basketball.sport.org.cn/team/2012-08-22/383409.html" title="U18亚青赛-韩德龙伤退高尚22分 国青65分擒印度">U18亚青赛-韩德龙伤退高尚22分 国青65分擒印度</a></li>
- 									<li><a href="http://basketball.sport.org.cn/team/2012-08-22/383408.html" title="FIBA秘书长：伦敦篮球水平超北京 亚洲令人担忧">FIBA秘书长：伦敦篮球水平超北京 亚洲令人担忧</a></li>
- 									<li><a href="http://basketball.sport.org.cn/team/2012-08-22/383405.html" title="106分屠杀！国青迈出卫冕第1步 1战缔造3大纪录">106分屠杀！国青迈出卫冕第1步 1战缔造3大纪录</a></li>
- 
+								{volist name="games" id="vo"}
+									<li>
+										<a href="/index/game_detail/{$vo.id}" title="{$vo.gamename}">
+											{$vo.gamename}
+										</a>
+									</li>
+								{/volist}
 							</ul>
 						</div>
 						<div class="space1"></div>
 					</div>
 				</div>
 				<div class="zone2">
-					<div class="zone bg1">
+					<div class="zone bg1" style="min-height: 300px;">
+
 						<div class="space1"></div>
-						<div align="center"><a href="http://basketball.sport.org.cn/League/list.html" title="联赛风云"><img src="http://images.sport.org.cn/new/bk/1_23.jpg" alt="联赛风云" vspace="6" /></a></div>
+
+						<div class="title-common-1">
+							精彩视频
+						</div>
+
 						<div class="zone3 tlist2">
 							<ul class="tlist2 L26">
-									<li><a href="http://basketball.sport.org.cn/League/2013-09-17/420194.html" title="篮协：同曦对评估提出异议 尽快出最终结果">篮协：同曦对评估提出异议 尽快出最终结果</a></li>
- 									<li><a href="http://basketball.sport.org.cn/League/2013-09-17/420193.html" title="奥神四将已提注册申请 新赛季外援政策不变">奥神四将已提注册申请 新赛季外援政策不变</a></li>
- 									<li><a href="http://basketball.sport.org.cn/League/2013-09-17/420195.html" title="CBA11月9日开赛调整为2周5赛 外援政策不变">CBA11月9日开赛调整为2周5赛 外援政策不变</a></li>
- 									<li><a href="http://basketball.sport.org.cn/League/2013-09-17/420196.html" title="山西男篮转让差俩文件 篮协：主场或留山西">山西男篮转让差俩文件 篮协：主场或留山西</a></li>
- 									<li><a href="http://basketball.sport.org.cn/League/2012-12-02/389175.html" title="阿联提出广东防守问题 李楠：广东靠进攻获胜">阿联提出广东防守问题 李楠：广东靠进攻获胜</a></li>
- 									<li><a href="http://basketball.sport.org.cn/League/2012-12-02/389174.html" title="生锡顺肯定麦蒂表现：我早说他是来证明自己">生锡顺肯定麦蒂表现：我早说他是来证明自己</a></li>
- 									<li><a href="http://basketball.sport.org.cn/League/2012-12-02/389173.html" title="尚平：麦蒂给球特别到位 换教练更方便场上沟通">尚平：麦蒂给球特别到位 换教练更方便场上沟通</a></li>
- 
+								{volist name="videos" id="vo"}
+									<li>
+										<a href="/index/video_detail/{$vo.id}" title="{$vo.video_name}">
+											{$vo.video_name}
+										</a>
+									</li>
+								{/volist}
 							</ul>
 						</div>
 						<div class="space1"></div>
 					</div>
 				</div>
 			</div>
+
 			<div class="space1"></div>
+
 			<div class="zone">
 				<div class="zone2">
 					<div class="zone bg1">
 						<div class="space1"></div>
-						<div align="center"><a href="http://basketball.sport.org.cn/inter/list.html" title="国际新闻"><img src="http://images.sport.org.cn/new/bk/1_24.jpg" alt="国际新闻" vspace="6" /></a></div>
+
+						<div class="title-common-1">资料库</div>
+
 						<div class="zone3 tlist2">
 							<ul class="tlist2 L26">
-									<li><a href="http://basketball.sport.org.cn/inter/2012-11-22/388589.html" title="NBA全明星票选1月14日结束 120名球员参加票选">NBA全明星票选1月14日结束 120名球员参加票选</a></li>
- 									<li><a href="http://basketball.sport.org.cn/inter/2012-11-22/388585.html" title="德安东尼战胜禅师加盟湖人 科比表态两个都喜欢">德安东尼战胜禅师加盟湖人 科比表态两个都喜欢</a></li>
+								{volist name="club_infos" id="vo"}
+									<li>
+										<a href="/index/club_detail/{$vo.id}" title="{$vo.title}">
+											{$vo.title}
+										</a>
+									</li>
+								{/volist}
+									
+ 									<!-- <li><a href="http://basketball.sport.org.cn/inter/2012-11-22/388585.html" title="德安东尼战胜禅师加盟湖人 科比表态两个都喜欢">德安东尼战胜禅师加盟湖人 科比表态两个都喜欢</a></li>
  									<li><a href="http://basketball.sport.org.cn/inter/2012-11-02/387552.html" title="詹姆斯鏖战至脚抽筋 热火发威大胜凯尔特人">詹姆斯鏖战至脚抽筋 热火发威大胜凯尔特人</a></li>
- 									<li><a href="http://basketball.sport.org.cn/inter/2012-11-02/387551.html" title="NBA大幕拉开热火领冠军钻戒 詹姆斯：享受这一刻">NBA大幕拉开热火领冠军钻戒 詹姆斯：享受这一刻</a></li>
+ 									<li><a href="http://basketball.sport.org.cn/inter/2012-11-02/387551.html" title="NBA大幕拉开热火领冠军钻戒 詹姆斯：享受这一刻">NBA大幕拉开热火领冠军钻戒 詹姆斯：享受这一刻</a></li> -->
  
 							</ul>
 						</div>
 						<div class="space1"></div>
 					</div>
 				</div>
+
 				<div class="zone2">
-					<div class="zone bg1">
+					<div class="zone bg1" style="min-height: 300px;">
+
 						<div class="space1"></div>
-						<div><a href="http://basketball.sport.org.cn/Photos/list_p.html" title="精彩图片"><img src="http://images.sport.org.cn/new/bk/1_19.jpg" alt="精彩图片" hspace="10" vspace="4" /></a></div>
-						<table width="100%" cellpadding="0" cellspacing="0">
-							<tr>
-								<td class="plist1">
-									<ul>
-										<li>
-											<div class="photo"><a href="http://photo.sports.cn/hdslide.jsp?id=48012" target="_blank"><img src="http://images.sport.org.cn/Image/2012/03/31/1041346995.gif" alt="-CBA总决赛北京问鼎冠军" /></a></div>
-											<div class="title"><a href="http://photo.sports.cn/hdslide.jsp?id=48012" target="_blank" title="-CBA总决赛北京问鼎冠军">-CBA总决赛北京问鼎冠军</a></div>
-										</li>
- 										<li>
-											<div class="photo"><a href="http://photo.sports.cn/hdslide.jsp?id=47961" target="_blank"><img src="http://images.sport.org.cn/Image/2012/03/29/1206345501.gif" alt="陈卫东任辽宁女篮主教练" /></a></div>
-											<div class="title"><a href="http://photo.sports.cn/hdslide.jsp?id=47961" target="_blank" title="陈卫东任辽宁女篮主教练">陈卫东任辽宁女篮主教练</a></div>
-										</li>
- 
-									</ul>
-								</td>
-							</tr>
-						</table>
+
+						<div class="title-common-1">
+							中国之队
+						</div>
+
+						<div class="zone3 tlist2">
+							<ul class="tlist2 L26">
+								{volist name="china_teams" id="vo"}
+									<li>
+										<a href="/index/china_teams/{$vo.id}" title="{$vo.title}">
+											{$vo.title}
+										</a>
+									</li>
+								{/volist}
+							</ul>
+						</div>
 						<div class="space1"></div>
 					</div>
 				</div>
+
 			</div>
+
 			<div class="space1"></div>
+
 			<div class="zone">
 				<div class="zone2">
 					<div class="zone bg1">
@@ -186,7 +244,9 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="space1"></div>
+
 			<div class="zone1">
 				<div class="zone bg1">
 					<div class="space1"></div>

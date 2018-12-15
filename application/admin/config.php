@@ -21,6 +21,7 @@ return [
         '__ROOT__'   => '/',
         '__STATIC__' => '/static/admin',
         '__LIB__'    => '/static/admin/lib',
+        '__PLUGIN__'    => '/static/index',
     ],
 
     // traits 目录

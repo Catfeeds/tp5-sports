@@ -32,55 +32,17 @@ class Content extends Controller
         return $this->view->fetch();        
     }
 
-    public function AddGraph() {
+    public function add() {
         if ($this->request->isAjax() && $this->request->isPost()) {
             $request = Request::instance();
             $post = $request->param();
-            $content = $post['name'];
 
-            $uid = Session::get('UID');
-
-            $flag = 1;
-
-            foreach ($content as $value) {
-
-                $data = [
-                    'type' => 'bar',
-                    'content' => json_encode($value)
-                ];
-
-                $graph_id = Db::name("AdminGraph")->insertGetId($data);
-
-                if (!$graph_id) {
-                    $flag = 0;
-                }
-
-                $relation = [
-                    'uid' => $uid, 
-                    'graph_id' => $graph_id
-                ];
-
-                $res = Db::name("AdminGraphReletion")->insert($relation);
-
-                if (!$res) {
-                    $flag = 0;
-                }
-
-            }
-
-            if ($flag == 1) {
-                return ajax_return($content, '上传成功', 1);
-            } else {
-                return ajax_return(null, '上传失败', 0);
-            } 
-
+            dump($post);
+            exit;
         } else {
-            throw new Exception("非法请求");
+            return $this->view->fetch();
         }
-    }
-
-    public function add() {
-        return $this->view->fetch();
+        
     }
 
 

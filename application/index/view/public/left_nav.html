@@ -10,31 +10,32 @@
 				<img src="__STATIC__/images/1.jpg" alt="CBA总决赛第二场 广东83：80新疆" />
 			</a>
 		</div>
+		
+		{empty name="videos_top"}
+			<div class="title border1">
+				精彩视频为空
+			</div>
+		{else /}
+			<div class="title border1">
+				<a href="{$videos_top.video_url}" target="_blank" title="{$videos_top.video_name}">
+					{$videos_top.video_name}
+				</a>
+			</div>
+		{/empty}
 
-		<div class="title border1">
-			<a href="http://v.sports.cn/lanqiu/cba/2010-04-18/2003549.html" target="_blank" title="CBA总决赛第二场 广东83：80新疆">
-				CBA总决赛第二场 广东83：80新疆
-			</a>
-		</div>
+		
 
 		<div class="space3"></div>
+	
 
 		<ul class="tlist2 L20">
+			{volist name="videos" id="vo"}
 				<li>
-					<a href="http://v.sports.cn/lanqiu/xinwen/2010-12-22/2112546.html" title="[视频]八一终结广东不败-WCBA联赛第六轮综述">
-						[视频]八一终结广东不败-WCBA联赛第六轮综述
+					<a href="{$vo.video_url}" title="{$vo.video_name}">
+						{$vo.video_name}
 					</a>
 				</li>
-					<li>
-						<a href="http://basketball.sport.org.cn/videos/2010-12-13/341573.html" title="[视频]WCBA第三轮综述-纪妍妍38分弑旧主">
-							[视频]WCBA第三轮综述-纪妍妍38分弑旧主
-						</a>
-					</li>
-					<li>
-						<a href="http://basketball.sport.org.cn/videos/2010-12-13/341572.html" title="[视频]广厦揭幕战迎开门红-CBA联赛首轮综述">
-							[视频]广厦揭幕战迎开门红-CBA联赛首轮综述
-						</a>
-					</li>
+			{/volist}
 		</ul>
 
 		<div class="space1"></div>
