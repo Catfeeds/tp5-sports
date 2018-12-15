@@ -24,6 +24,10 @@ ul,ol,li {
 em {
 	display:none;
 }
+#nav em {
+	display: inline-block;
+	font-size: 16px;
+}
 h1,h2,h3,h4,h5 {
 	padding:0;
 	margin:0;
@@ -175,7 +179,7 @@ html>body #right .zone2 {
 }
 
 #nav {
-	background:url(http://images.sport.org.cn/new/bk/1_06.jpg) no-repeat left top;
+	background:url(/static/index/images/1_06.jpg) no-repeat left top;
 	height:60px;
 }
 #nav ul {
@@ -185,15 +189,20 @@ html>body #right .zone2 {
 	display:block;
 	height:38px;
 	background-repeat:no-repeat;
-	background-image:url(/static/index/images/1_07.jpg);
+	/*background-image:url(/static/index/images/1_07.jpg);*/
 }
 #nav a:hover {
-	background-image:url(/static/index/images/1_08.jpg);
+	/*background-image:url(/static/index/images/1_08.jpg);*/
+}
+#nav a:hover {
+	color: yellow;
 }
 #nav li {
 	display:block;
 	float:left;
 	height:38px;
+	line-height: 38px;
+	text-align: center;
 }
 #nav1 a {	width:60px;background-position:0 0;	}
 #nav2 a {	width:90px;background-position:-60px 0;	}
