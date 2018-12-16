@@ -203,6 +203,7 @@ html>body #right .zone2 {
 	height:38px;
 	line-height: 38px;
 	text-align: center;
+	position: relative;
 }
 #nav1 a {	width:60px;background-position:0 0;	}
 #nav2 a {	width:90px;background-position:-60px 0;	}
@@ -288,6 +289,10 @@ h2 {
 }
 .tlist2 li {
 	padding:3px 0 0 9px;
+	overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
 	/*background:url(http://images.sport.org.cn/new/bk/1_29.gif) no-repeat left center;*/
 }
 .tlist3 li {
@@ -460,3 +465,4 @@ html>body #content_a .txt {
     padding-left: 10px;
     margin: 0px 10px;
 }
+

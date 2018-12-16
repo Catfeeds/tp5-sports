@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>video_detail</title>
-</head>
-<body>
-	video_detail
-</body>
-</html>
+{extend name="public/base" /}
+{block name="content"}
+<style type="text/css">
+#player {
+	position:relative;
+	padding-bottom:6px;
+}
+#player #play_div{ 
+	width:400px;
+	z-index:1;
+}
+#player #img_div {
+	position:absolute;
+}
+#player #img_div img {
+	width:400px;
+	height:300px;
+}
+</style>
+<div id="box">
+	{include file="public/header" /}
+		<div class="zone">
+			{include file="public/left_nav" /}
+
+			<div class="first" id="right">
+				<div class="zone1">
+					<div class="zone bg1">
+						<div class="level border1">&nbsp;
+							<a href='/'>首页</a> >> 
+							<a href='/index/hot_news'>热点新闻</a>
+						</div>
+
+						<div id="atitle">{$hot_news.news_name}</div>
+						<div class="c01"align="center">{$hot_news.time|date='Y-m-d H:i:s',###}
+						</div>
+
+						<div id="vogate_ad_area">
+							<div id="atext">
+								<div style="text-align: center;margin: 10px 0px">
+									<a href="javascript:;" id="img_div" style="text-align: center;">
+										<img
+											src="http://tp5.cli.me//uploads/picture/20181216/a378404df8278a481a96671b9bbfb4c4.png"
+											alt=""
+											style="width: 400px;height: 300px;" 
+										/>
+									</a>
+								</div>
+
+								{$content.content}
+							</div>
+						</div>（责任编辑：杨宝岩）
+					</div>
+
+					<div class="space1"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	{include file="public/footer" /}
+{/block}

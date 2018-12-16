@@ -118,7 +118,8 @@ class Pub
                 'last_login_time' => time(),
                 'create_time' => time(),
                 'update_time' => time(),
-                'email' => $post['email']
+                'email' => $post['email'],
+                'status' => '2'
             ];
 
             $register = Db::name("AdminUser")->insert($data);

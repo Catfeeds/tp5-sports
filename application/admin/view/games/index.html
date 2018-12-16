@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1111</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="__STATIC__/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <!-- <link href="__STATIC__/css/plugins/morris.css" rel="stylesheet"> -->
+
+  <link href="__STATIC__/css/sing/common.css" rel="stylesheet">
+
+
+  <!-- Custom Fonts -->
+  <link href="__STATIC__/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/party/uploadify.css">
+
+  <!-- jQuery -->
+  <script src="__STATIC__/js/jquery.js"></script>
+  <script src="__STATIC__/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/js/dialog/layer.js"></script>
+  <script src="__STATIC__/js/dialog.js"></script>
+  <script type="text/javascript" src="__STATIC__/js/party/jquery.uploadify.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+
+  <include file="Index/nav"/>
+  <div id="page-wrapper" style="margin-top: 20px;">
+
+    <div class="container-fluid" >
+
+      <!-- Page Heading -->
+      <div class="row">
+        <div class="col-lg-12">
+
+          <ol class="breadcrumb">
+            <li class="active">
+              <i class="fa fa-table"></i>  文章列表
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.row -->
+      <button
+        id="button-add"
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        style="margin-bottom: 20px;"
+      >
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        添加文章
+      </button>
+
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="table-responsive">
+            <form id="singcms-listorder">
+              <table class="table table-bordered table-hover singcms-table">
+                <thead>
+                  <tr>
+                    <th width="50px;">id</th>
+                    <th width="400px;">比赛标题</th>
+                    <th width="200px;">比赛时间</th>
+                    <th width="100px;">比赛地点</th>
+                    <th width="200px;">比赛队伍</th>
+                    <th width="200px;">比赛图片</th>
+                    <th width="200px;">比赛分数</th>
+                    <th width="100px;">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {volist name="games" id="vo"}
+                  <tr>
+                      <td>{$vo.id}</td>
+                      <td>{$vo.gamename}</td>
+                      <td>{$vo.starttime}</td>
+                      <td>{$vo.address}</td>
+                      <td>{$vo.team1} vs {$vo.team2}</td>
+                      <td>
+                        <img src="{$vo.thumb1}" alt="" style="width: 100px;height: 100px;" />
+                      </td>
+                      <td>{$vo.points}</td>
+                      <td>
+                        <span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$vo.id}" ></span>
+
+                        <a href="javascript:void(0)" id="singcms-delete"  attr-id="{$vo.id}"  attr-message="删除">
+                          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                        </a>
+
+                        <a target="_blank" href="/index/news_detail?id={$vo.id}" class="sing_cursor glyphicon glyphicon-eye-open" aria-hidden="true"></a>
+                      </td>
+                  </tr>
+                {/volist}
+
+                </tbody>
+              </table>
+
+              <nav style="text-align: center;">
+                {$page}
+              </nav>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+<script>
+  var SCOPE = {
+    'edit_url' : '/index.php/admin/games/edit',
+    'add_url' : '/index.php/admin/games/add',
+    'set_status_url' : '/index.php/admin/games/setStatus',
+    'sing_news_view_url' : '/index.php/view',
+    'listorder_url' : '/index.php/admin/content/listorder',
+    'push_url' : '/index.php/admin/content/push',
+  }
+</script>
+<script src="__STATIC__/js/admin/common.js"></script>
+</body>
+</html>

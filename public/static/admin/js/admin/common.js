@@ -10,7 +10,6 @@ $("#button-add").click(function(){
  * 提交form表单操作
  */
 $("#singcms-button-submit").click(function(){
-    console.log('=================');
     var data = $("#singcms-form").serializeArray();
     postData = {};
     $(data).each(function(i){
@@ -25,6 +24,7 @@ $("#singcms-button-submit").click(function(){
     $.post(url,postData,function(result){
         if(result.status == 1) {
             //成功
+            console.log('---jump_url---', jump_url);
             return dialog.success(result.message,jump_url);
         }else if(result.status == 0) {
             // 失败
@@ -37,7 +37,7 @@ $("#singcms-button-submit").click(function(){
  */
 $('.singcms-table #singcms-edit').on('click',function(){
     var id = $(this).attr('attr-id');
-    var url = SCOPE.edit_url + '&id='+id;
+    var url = SCOPE.edit_url + '?id='+id;
     window.location.href=url;
 });
 

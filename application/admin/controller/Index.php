@@ -66,6 +66,14 @@ class Index extends Controller{
         // $this->view->assign('groups', $groups);
         // $this->view->assign('menu', $menu);
 
+        $uid = Session::get('UID');
+
+        $res = Db::name("AdminUser")->where("id", $uid)->find();
+
+        $res_status = $res['status'];
+
+        $this->view->assign('status', $res_status);
+
         return $this->view->fetch();
     }
 

@@ -1,0 +1,240 @@
+{extend name="public/base" /}
+{block name="content"}
+<style type="text/css">
+	.panel-default {
+    border-color: #ddd;
+	}
+	.panel {
+		margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	}
+	.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+	}
+	.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	}
+	.panel-body {
+    padding: 15px;
+    color: black;
+	}
+	.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	}
+	.panel-danger {
+		border-color: #ebccd1;
+	}
+	.panel-danger>.panel-heading {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+	}
+	hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+	}
+	.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	}
+	.form-group {
+    margin-bottom: 15px;
+	}
+	.label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+	}
+	.form-control {
+		display: block;
+    width: 95%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	.btn {
+		display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+	}
+
+	.btn-primary {
+	    color: #fff;
+	    background-color: #337ab7;
+	    border-color: #2e6da4;
+	}
+
+	.layui-layer-dialog .layui-layer-content {
+		color: black;
+	}
+</style>
+<div id="box">
+	{include file="public/header" /}
+		<div class="zone">
+			{include file="public/left_nav" /}
+
+			<div class="first" id="right">
+				<div class="zone1">
+					<div class="zone bg1">
+						<div class="level border1">&nbsp;
+							<a href='/'>首页</a> >> 
+							<a href='/index/hot_news'>留言板</a>
+						</div>
+
+						<div id="vogate_ad_area">
+							<div id="atext">
+
+								<div class="panel panel-default">
+								  <div class="panel-heading">{$article.title} {$article.create_time|date='Y-m-d H:i:s',###}</div>
+								  <div class="panel-body">
+								  	{$article.content}
+								    <hr/>
+								    {volist name='comments' id='c'}
+								    <div class="well">
+								    {$c.content}
+								   <h6> {$c.username} 发表于 : {$c.create_time|date='Y-m-d H:i:s',###}</h6>
+								    </div>
+								    {/volist}
+								  </div>
+								</div>
+
+								<div class="panel panel-danger">
+								  <div class="panel-heading">发布评论</div>
+								  <div class="panel-body">
+								  	<form id="singcms-form">
+										  <!-- <div class="form-group">
+										    <label for="exampleInputEmail1">姓名：</label>
+										    <input type="text" class="form-control" name='username' placeholder="请输入姓名">
+										  </div> -->
+										  <input type="hidden" name="article_id" value="{$article.id}"/>
+										  <div class="form-group">
+										    <label for="exampleInputPassword1">内容：</label>
+										    <input type="text" name="content" hidden class='contents'>
+												<script type="text/plain" id="myEditor" style="width: 100%"></script>
+												<script>
+												$opt={toolbar:[
+															'source |',
+												            'undo redo | bold italic underline strikethrough | superscript subscript | forecolor backcolor |',
+												            'horizontal | insertorderedlist insertunorderedlist | link unlink | selectall cleardoc' ,
+												            '| justifyleft justifycenter justifyright justifyjustify | paragraph fontfamily fontsize',
+												            '| emotion image video',
+												            ' | fullscreen'
+												    ]};
+												    var um = UM.getEditor('myEditor',$opt);
+												 function getContent(){
+												   return um.getContent();
+												 }
+												 $(function(){
+												  $('button[type="submit"]').on('click',function(){
+												    $('.contents').val(getContent())
+												  })
+												 })
+												</script>
+										  </div>
+										 
+										  
+										  <button type="button" class="btn btn-primary" id="comment-submit">发布评论</button>
+										</form>
+								  </div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="space1"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	  var SCOPE = {
+	    'comment_url' : '/index/message_board/add',
+	    'jump_url' : '/index/message_board/detail?id={$article.id}',
+	    'login_url' : '/admin',
+	  }
+	</script>
+	<script type="text/javascript">
+		$("#comment-submit").click(function(){
+	    var data = $("#singcms-form").serializeArray();
+	    postData = {};
+
+	    $(data).each(function(i){
+	       postData[this.name] = this.value;
+	    });
+	    // 将获取到的数据post给服务器
+	    url = SCOPE.comment_url;
+	    jump_url = SCOPE.jump_url;
+	    login_url = SCOPE.login_url;
+	    
+	    console.log(url);
+
+	    $.post(url,postData,function(result){
+	        if(result.status == 1) {
+	        	console.log(result);
+
+	            //成功
+	            return dialog.success(result.message,jump_url);
+	        } else if(result.status == 0) {
+	        		console.log(result);
+	            // 失败
+	            return dialog.error(result.message);
+	        } else if(result.status == 2) {
+	        		console.log(result);
+	            // 失败
+	            return dialog.success(result.message, login_url);
+	        }
+	    },"JSON");
+	});
+	</script>
+	{include file="public/footer" /}
+{/block}

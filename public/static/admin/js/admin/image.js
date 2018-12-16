@@ -2,7 +2,7 @@
  * 图片上传功能
  */
 $(function() {
-    console.log('SCOPE.ajax_upload_swf', SCOPE.ajax_upload_swf);
+
     $('#file_upload').uploadify({
         'swf'      : SCOPE.ajax_upload_swf,
         'uploader' : SCOPE.ajax_upload_image_url,
@@ -14,13 +14,14 @@ $(function() {
         'onUploadSuccess' : function(file,data,response) {
             // response true ,false
             if(response) {
+                console.log(file);
                 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
-
+                console.log(obj);
                 console.log(data);
                 $('#' + file.id).find('.data').html(' 上传完毕');
 
-                $("#upload_org_code_img").attr("src",obj.data);
-                $("#file_upload_image").attr('value',obj.data);
+                $("#upload_org_code_img").attr("src",obj.data.img_url);
+                $("#file_upload_image").attr('value',obj.data.img_url);
                 $("#upload_org_code_img").show();
             }else{
                 alert('上传失败');

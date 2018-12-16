@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>info_download</title>
-</head>
-<body>
-	info_download
-</body>
-</html>
+{extend name="public/base" /}
+{block name="content"}
+<div id="box">
+	{include file="public/header" /}
+		<div class="zone">
+			{include file="public/left_nav" /}
+
+			<div class="first" id="right">
+				<div class="zone1">
+					<div class="zone bg1">
+						<div class="level border1">&nbsp;
+							<a href='/'>首页</a> >> 
+							<a href='/index/hot_news'>文档下载</a>
+						</div>
+
+						<div id="vogate_ad_area">
+							<div id="atext">
+								{volist name='infos' id='v'}
+									<li>
+										<a target="_blank" href="/index/china_teams/detail?id={$v.id}" title="{$v.title}">
+											{$v.title}
+										</a>
+									</li>
+								{/volist}
+							</div>
+					</div>
+
+					<div class="space1"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	{include file="public/footer" /}
+{/block}

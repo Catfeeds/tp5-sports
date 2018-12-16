@@ -8,32 +8,39 @@
             <li>
             	<a _href="/admin/admin_user/index.html" data-title="用户管理" href="javascript:;" data-nav="个人信息">用户管理</a>
             </li>
+            {if condition="$status eq '1'"}
+            <li>
+                <a _href="/admin/admin_user/addnew.html" data-title="用户管理" href="javascript:;" data-nav="添加管理员">添加管理员</a>
+            </li>
+            {/if}
         </ul>
     </dd>
 </dl>
 
+{if condition="$status eq '1'"}
 <dl>
     <dt>
         <i class="Hui-iconfont">&#xe616;</i>
-        excle上传<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+        资料管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
     </dt>
     <dd>
         <ul>
             <li>
-            	<a _href="/admin/content/index.html" data-title="最新消息" href="javascript:;" data-nav="最新消息">最新新闻</a>
+            	<a _href="/admin/news_content/index.html" data-title="最新消息" href="javascript:;" data-nav="最新消息">最新新闻</a>
             </li>
             <li>
-                <a _href="/admin/content/index.html" data-title="精彩视频" href="javascript:;" data-nav="精彩视频">精彩视频</a>
+                <a _href="/admin/video_content/index.html" data-title="精彩视频" href="javascript:;" data-nav="精彩视频">精彩视频</a>
             </li>
             <li>
-                <a _href="/admin/content/index.html" data-title="比赛" href="javascript:;" data-nav="比赛">比赛</a>
+                <a _href="/admin/games/index.html" data-title="比赛" href="javascript:;" data-nav="比赛">比赛</a>
             </li>
             <li>
-                <a _href="/admin/content/index.html" data-title="资料库" href="javascript:;" data-nav="资料库">资料库</a>
+                <a _href="/admin/news_content/index.html" data-title="资料库" href="javascript:;" data-nav="资料库">资料库</a>
             </li>
             <li>
-                <a _href="/admin/content/index.html" data-title="资料库" href="javascript:;" data-nav="资料库">中国队</a>
+                <a _href="/admin/news_content/index.html" data-title="资料库" href="javascript:;" data-nav="资料库">中国队</a>
             </li>
         </ul>
     </dd>
 </dl>
+{/if}

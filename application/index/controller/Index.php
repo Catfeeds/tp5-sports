@@ -35,8 +35,8 @@ class Index extends controller{
     public function index(){
 
         $videos = Db::name("Videos")->where('is_top','neq',1)->select();
-        $videos_top = Db::name("Videos")->where('is_top', 1)->find();
-        $hot_news = Db::name("HotNews")->where('is_top','neq',1)->select();
+        $videos_top = Db::name("Videos")->where('is_top', 1)->where('status', 0)->find();
+        $hot_news = Db::name("HotNews")->where('is_top','neq',1)->where('status', 0)->select();
         $hot_news_top = Db::name("HotNews")->where('is_top', 1)->find();
 
         $games = Db::name("Games")->select();
@@ -44,7 +44,6 @@ class Index extends controller{
         $club_infos = Db::name("ClubInfo")->select();
 
         $china_teams = Db::name("ChinaTeam")->select();
-
 
 
 
@@ -59,12 +58,6 @@ class Index extends controller{
         $this->view->assign('club_infos', $club_infos);
         $this->view->assign('china_teams', $china_teams);
         
-
-
-
-
-        // dump($games);
-        // exit;
 
 
         return $this->view->fetch();

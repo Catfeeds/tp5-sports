@@ -133,6 +133,8 @@ return [
     // 视图输出字符串内容替换
     'view_replace_str'      => [
         '__STATIC__' => '/static/index',
+        '__ADMIN__' => '/static/admin',
+        '__LIB__'    => '/static/admin/lib',
     ],
 
     // 默认跳转页面对应的模板文件

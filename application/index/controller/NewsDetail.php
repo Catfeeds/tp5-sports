@@ -13,29 +13,27 @@ class NewsDetail extends controller{
 
     public function index(){
 
-    		$request = Request::instance();
-            $post = $request->param();
+  		$request = Request::instance();
+      $post = $request->param();
 
-            $id = $post['id'];
+      $id = $post['id'];
 
-            if (!$id) {
-            	return;
-            }
+      if (!$id) {
+      	return;
+      }
 
-            $content = Db::name("NewsContent")->where('news_id',$id)->find();
+      $content = Db::name("NewsContent")->where('news_id',$id)->find();
 
-            $hot_news = Db::name("HotNews")->where('id',$id)->find();
-
-
-           	$videos = Db::name("Videos")->where('is_top','neq',1)->select();
-
-           	$this->view->assign('content', $content);
-           	$this->view->assign('videos', $videos);
-           	$this->view->assign('hot_news', $hot_news);
+      $hot_news = Db::name("HotNews")->where('id',$id)->find();
 
 
+     	$videos = Db::name("Videos")->where('is_top','neq',1)->select();
 
-			return $this->view->fetch();
+     	$this->view->assign('content', $content);
+     	$this->view->assign('videos', $videos);
+     	$this->view->assign('hot_news', $hot_news);
+
+      return $this->view->fetch();
 
     }
 

@@ -18,7 +18,27 @@
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="__STATIC__/css/sports_header.css">
     <link rel="stylesheet" type="text/css" href="__STATIC__/css/main.css">
+
     <script src="__STATIC__/js/stab.js" type="text/javascript"></script>
+
+    <link href="__STATIC__/js/um/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <!-- <link href="__STATIC__/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <link href="__STATIC__/css/comment.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="__STATIC__/js/um/third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/um/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/js/um/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/js/um/um.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/um/lang/zh-cn/zh-cn.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="__ADMIN__/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="__LIB__/Hui-iconfont/1.0.7/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="__LIB__/icheck/icheck.css"/>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/h-ui.admin/skin/default/skin.css" id="skin"/>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/h-ui.admin/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="__LIB__/icheck/icheck.css"/> -->
 
     {block name="style"}{/block}
     <!--[if IE 6]>
@@ -29,12 +49,17 @@
 </head>
 <body>
 {block name="nav"}
-<nav class="breadcrumb">
-    <div id="nav-title"></div>
-    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:;" onclick="location.replace(location.href);" title="刷新"><i class="Hui-iconfont"></i></a>
-</nav>
 {/block}
 {block name="content"}{/block}
-{block name="script"}{/block}
+{block name="script"}
+<script type="text/javascript" src="__LIB__/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__LIB__/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__ADMIN__/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="__ADMIN__/h-ui.admin/js/H-ui.admin.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/app.js"></script>
+<script type="text/javascript" src="__LIB__/icheck/jquery.icheck.min.js"></script>
+<script src="__ADMIN__/js/dialog/layer.js"></script>
+  <script src="__ADMIN__/js/dialog.js"></script>
+{/block}
 </body>
 </html>

@@ -3,6 +3,11 @@
 namespace app\index\controller;
 
 use think\Controller;
+use think\Exception;
+use think\Db;
+use think\Loader;
+use think\Session;
+use think\Config;
 use think\Request;
 
 class Blog extends Controller

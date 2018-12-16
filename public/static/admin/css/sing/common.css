@@ -38,3 +38,13 @@
 }
 .sing_cursor{cursor:pointer}
 .sing_green{color:#308014}
+
+.singcms-table th {
+    vertical-align: middle!important;
+    text-align: center!important;
+}
+
+.singcms-table td {
+    vertical-align: middle!important;
+    text-align: center!important;
+}

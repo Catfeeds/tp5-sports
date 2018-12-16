@@ -22,6 +22,9 @@ use think\Db;
 use think\Loader;
 use think\Session;
 use think\Config;
+use think\View;
+use think\Request;
+use think\Validate;
 
 class AdminUser extends Controller
 {
@@ -89,6 +92,57 @@ class AdminUser extends Controller
         return $this->view->fetch();
     }
 
+
+    public function addNew() {
+        if(request()->isPost()){
+            $request = Request::instance();
+            $post = $request->param();
+
+            $res = Db::name("AdminUser")->where("account", $post['account'])->find();
+
+            if ($res) {
+                return show(0,  "已经存在该账号");
+            }
+
+            if($post['password'] != $post['repassword']) {
+                return show(0,  "两次输入的密码不一样");
+            }
+
+            $validate = new Validate([
+                'account' => 'require',
+                'mobile' => 'require|regex:1[3-8]{1}[0-9]{9}',
+            ]);
+
+            if (!$validate->check($post)) {
+                return show(0,  $validate->getError());
+            }
+
+
+            $data = [
+                'account' => $post['account'],
+                'password' => md5($post['password']),
+                'realname' => $post['realname'],
+                'mobile' => $post['mobile'],
+                'last_login_ip' => $request->ip(),
+                'last_login_time' => time(),
+                'create_time' => time(),
+                'update_time' => time(),
+                'email' => $post['email'],
+                'status' => '1'
+            ];
+
+            $register = Db::name("AdminUser")->insert($data);
+
+            if ($register){
+                return show(1,'新增成功');
+            }else{
+                return show(0,'新增失败');
+            }
+
+        } else {
+            return $this->view->fetch();
+        }
+    }
     /**
      * 禁用限制
      */

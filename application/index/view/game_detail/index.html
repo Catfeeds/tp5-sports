@@ -1,0 +1,34 @@
+{extend name="public/base" /}
+{block name="content"}
+<div id="box">
+	{include file="public/header" /}
+		<div class="zone">
+			{include file="public/left_nav" /}
+
+			<div class="first" id="right">
+				<div class="zone1">
+					<div class="zone bg1">
+						<div class="level border1">&nbsp;
+							<a href='/'>首页</a> >> 
+							<a href='/index/games'>比赛</a>
+						</div>
+
+						<div id="atitle">{$games.gamename}</div>
+						<div class="c01" align="center">{$games.starttime|date='Y-m-d H:i:s',###}
+						</div>
+
+						<div id="vogate_ad_area">
+							<div id="atext">
+								{$content.content}
+							</div>
+						</div>
+					</div>
+
+					<div class="space1"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	{include file="public/footer" /}
+{/block}
