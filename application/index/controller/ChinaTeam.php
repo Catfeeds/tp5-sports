@@ -15,12 +15,6 @@ class ChinaTeam extends controller{
       $request = Request::instance();
       $post = $request->param();
 
-      // $id = $post['id'];
-
-      // if (!$id) {
-      // 	return;
-      // }
-
      	$videos = Db::name("Videos")->select();
       $china_teams = Db::name("ChinaTeam")->select();
       
@@ -32,6 +26,23 @@ class ChinaTeam extends controller{
     }
 
     public function detail () {
+      $request = Request::instance();
+      $post = $request->param();
+
+      $id = $post['id'];
+
+      if (!$id) {
+        return show(0, '不存在id');
+      }
+
+      $china_team_detail = Db::name("ChinaTeamDetail")->where("team_id", $id)->find();
+      $videos = Db::name("Videos")->select();
+      $china_teams = Db::name("ChinaTeam")->where("id", $id)->find();
+
+      $this->view->assign('china_team_detail', $china_team_detail);
+      $this->view->assign('videos', $videos);
+      $this->view->assign('china_teams', $china_teams);
+
       return $this->view->fetch();
     }
 
