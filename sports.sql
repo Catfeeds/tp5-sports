@@ -11,7 +11,7 @@
  Target Server Version : 50542
  File Encoding         : utf-8
 
- Date: 12/16/2018 21:59:25 PM
+ Date: 12/17/2018 10:17:00 AM
 */
 
 SET NAMES utf8mb4;
@@ -295,6 +295,17 @@ CREATE TABLE `zy_china_team` (
 BEGIN;
 INSERT INTO `zy_china_team` VALUES ('1', '中国队信息', '北京时间4月27日晚，10-11赛季CBA总决赛第六场， 新疆队回到主场对阵广东。前三节落后的广东队末节爆发，', '1544325344'), ('2', '中国队信息1', '北京时间4月27日晚，10-11赛季CBA总决赛第六场， 新疆队回到主场对阵广东。前三节落后的广东队末节爆发，', '1544325344'), ('3', '中国队信息2', '北京时间4月27日晚，10-11赛季CBA总决赛第六场， 新疆队回到主场对阵广东。前三节落后的广东队末节爆发，', '1544325344'), ('4', '中国队信息4', '北京时间4月27日晚，10-11赛季CBA总决赛第六场， 新疆队回到主场对阵广东。前三节落后的广东队末节爆发，', '1544325344');
 COMMIT;
+
+-- ----------------------------
+--  Table structure for `zy_china_team_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `zy_china_team_detail`;
+CREATE TABLE `zy_china_team_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team_id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `zy_club_detail`

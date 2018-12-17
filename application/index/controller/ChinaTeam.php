@@ -11,7 +11,7 @@ use think\Request;
 
 class ChinaTeam extends controller{
 
-    public function index(){
+    public function index () {
       $request = Request::instance();
       $post = $request->param();
 
@@ -28,6 +28,10 @@ class ChinaTeam extends controller{
       $this->view->assign('china_teams', $china_teams);
 
 
+      return $this->view->fetch();
+    }
+
+    public function detail () {
       return $this->view->fetch();
     }
 

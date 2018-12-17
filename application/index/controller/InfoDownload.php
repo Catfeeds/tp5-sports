@@ -30,4 +30,8 @@ class InfoDownload extends controller{
       return $this->view->fetch();
     }
 
+    public function detail () {
+      return $this->view->fetch();
+    }
+
 }
