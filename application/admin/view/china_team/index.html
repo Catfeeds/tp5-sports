@@ -71,21 +71,19 @@
                     <th>备注</th>
                     <th width="200px;">封面图</th>
                     <th width="100px;">时间</th>
-                    <th width="100px;">首页显示</th>
                     <th width="100px;">操作</th>
                   </tr>
                 </thead>
                 <tbody>
-                {volist name="hot_news" id="vo"}
+                {volist name="china_teams" id="vo"}
                   <tr>
                       <td>{$vo.id}</td>
-                      <td>{$vo.news_name}</td>
-                      <td>{$vo.newsinfo}</td>
+                      <td>{$vo.title}</td>
+                      <td>{$vo.info}</td>
                       <td>
                         <img src="{$vo.thumb}" alt="" style="width: 100px;height: 100px;" />
                       </td>
                       <td>{$vo.time|date='Y-m-d H:i:s',###}</td>
-                      <td>{$vo.is_top}</td>
                       <td>
                         <span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$vo.id}" ></span>
 
@@ -123,9 +121,9 @@
 </div>
 <script>
   var SCOPE = {
-    'edit_url' : '/index.php/admin/news_content/edit',
-    'add_url' : '/index.php/admin/news_content/add',
-    'set_status_url' : '/index.php/admin/news_content/setStatus',
+    'edit_url' : '/index.php/admin/china_team/edit',
+    'add_url' : '/index.php/admin/china_team/add',
+    'set_status_url' : '/index.php/admin/china_team/setStatus',
     'sing_news_view_url' : '/index.php/view',
     'listorder_url' : '/index.php/admin/content/listorder',
     'push_url' : '/index.php/admin/content/push',
