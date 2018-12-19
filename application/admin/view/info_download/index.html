@@ -38,7 +38,7 @@
 
           <ol class="breadcrumb">
             <li class="active">
-              <i class="fa fa-table"></i>  文章列表
+              <i class="fa fa-table"></i>  文档列表
             </li>
           </ol>
         </div>
@@ -54,7 +54,7 @@
         style="margin-bottom: 20px;"
       >
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        添加文章
+        添加资料库
       </button>
 
       <div class="row">
@@ -70,7 +70,6 @@
                     <th>备注</th>
                     <th width="200px;">封面图</th>
                     <th width="100px;">时间</th>
-                    <th width="100px;">首页显示</th>
                     <th width="100px;">操作</th>
                   </tr>
                 </thead>
@@ -91,7 +90,7 @@
                           <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                         </a>
 
-                        <a target="_blank" href="/index/news_detail?id={$vo.id}" class="sing_cursor glyphicon glyphicon-eye-open" aria-hidden="true"></a>
+                        <a target="_blank" href="/index/info_download/detail?id={$vo.id}" class="sing_cursor glyphicon glyphicon-eye-open" aria-hidden="true"></a>
                       </td>
                   </tr>
                 {/volist}

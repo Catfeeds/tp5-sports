@@ -24,17 +24,17 @@ use think\Session;
 use think\Config;
 use think\Request;
 
-class InfoDownload extends Controller
+class Comment extends Controller
 {
     use \app\admin\traits\controller\Controller;
 
     public function index() {
-        $infos = Db::name("ClubInfo")->where('status', 'neq', 1)->paginate(5);
+        $comments = Db::name("IndexArticle")->where('status', 'neq', 1)->paginate(5);
         
         // 获取分页显示
-        $page = $infos->render();
+        $page = $comments->render();
 
-        $this->view->assign('infos', $infos);
+        $this->view->assign('comments', $comments);
         $this->view->assign('page', $page);
 
         return $this->view->fetch();
@@ -45,29 +45,22 @@ class InfoDownload extends Controller
             $request = Request::instance();
             $post = $request->param();
 
-            if($post['infos_id']) {
+            if($post['comments_id']) {
                 return $this->save($post);
             }
 
             $data = [
                 'title' => $post['title'],
-                'thumb' => $post['thumb'],
-                'intro' => $post['intro'],
-                'time' => time(),
+                'create_time' => time(),
                 'status' => 0
             ];
 
-            $newsId = Db::name("ClubInfo")->insertGetId($data);
+            $newsId = Db::name("IndexArticle")->insertGetId($data);
 
             if($newsId) {
-                $newsContentData['content'] = $post['content'];
-                $newsContentData['club_id'] = $newsId;
-                $cId = Db::name("ClubDetail")->insert($newsContentData);
-                if($cId){
-                    return show(1,'新增成功');
-                }else{
-                    return show(1,'主表插入成功，副表插入失败');
-                }
+                return show(1,'新增成功');
+            } else {
+             return show(0,'新增失败');
             }
         } else {
             return $this->view->fetch();
@@ -85,35 +78,27 @@ class InfoDownload extends Controller
             return show(0, 'ID 没有');
         }
 
-        $news = Db::name("ClubInfo")->where('id',$id)->find();
-        $content = Db::name("ClubDetail")->where('club_id',$id)->find();
+        $news = Db::name("IndexArticle")->where('id',$id)->find();
 
 
-        $this->view->assign('infos', $news);
-        $this->view->assign('content', $content);
+        $this->view->assign('comments', $news);
 
         return $this->view->fetch();
     }
 
     public function save($data) {
-        $newsId = $data['infos_id'];
+        $newsId = $data['comments_id'];
 
         $res_data = [
             'title' => $data['title'],
-            'thumb' => $data['thumb'],
-            'intro' => $data['intro'],
-            'time' => time(),
+            'create_time' => time(),
             'status' => 0
         ];
 
         try {
-            $res_id = Db::name("ClubInfo")->where("id", $newsId)->update($res_data);
+            $res_id = Db::name("IndexArticle")->where("id", $newsId)->update($res_data);
 
-            $newsContentData['content'] = $data['content'];
-
-            $condId =  Db::name("ClubDetail")->where("club_id", $newsId)->update($newsContentData);
-
-            if($res_id === false || $condId === false) {
+            if($res_id === false) {
                 return show(0, '更新失败');
             }
 
@@ -140,7 +125,7 @@ class InfoDownload extends Controller
                     'status' => 1
                 ];
 
-                $news = Db::name("ClubInfo")->where('id',$id)->update($data);
+                $news = Db::name("IndexArticle")->where('id',$id)->update($data);
                 
                 if ($news) {
                     return show(1, '操作成功');

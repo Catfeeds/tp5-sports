@@ -12,23 +12,18 @@ use think\Request;
 class Games extends controller{
 
     public function index(){
-        $request = Request::instance();
+      $request = Request::instance();
       $post = $request->param();
-
-      // $id = $post['id'];
-
-      // if (!$id) {
-      // 	return;
-      // }
 
       $content = Db::name("NewsContent")->find();
      	$videos = Db::name("Videos")->select();
       $games = Db::name("Games")->select();
-
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
      	$this->view->assign('content', $content);
      	$this->view->assign('videos', $videos);
       $this->view->assign('games', $games);
+      $this->view->assign('videos_top', $videos_top);
 
 
       return $this->view->fetch();

@@ -23,9 +23,11 @@ class InfoDownload extends controller{
 
       $videos = Db::name("Videos")->select();
       $infos = Db::name("ClubInfo")->select();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
       $this->view->assign('videos', $videos);
       $this->view->assign('infos', $infos);
+      $this->view->assign('videos_top', $videos_top);
 
       return $this->view->fetch();
     }
@@ -47,10 +49,12 @@ class InfoDownload extends controller{
 
       $infos = Db::name("ClubInfo")->where('id',$id)->find();
       $club_info = Db::name("ClubDetail")->where("club_id", $id)->find();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
       $this->view->assign('club_info', $club_info);
       $this->view->assign('videos', $videos);
       $this->view->assign('infos', $infos);
+      $this->view->assign('videos_top', $videos_top);
 
       return $this->view->fetch();
     }

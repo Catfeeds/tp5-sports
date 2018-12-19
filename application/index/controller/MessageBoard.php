@@ -25,12 +25,14 @@ class MessageBoard extends controller{
       $hot_news = Db::name("HotNews")->find();
      	$videos = Db::name("Videos")->select();
       $list = Db::name("IndexArticle")->select();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
 
      	$this->view->assign('content', $content);
      	$this->view->assign('videos', $videos);
      	$this->view->assign('hot_news', $hot_news);
       $this->view->assign('list', $list);
+      $this->view->assign('videos_top', $videos_top);
 
       return $this->view->fetch();
     }
@@ -43,10 +45,12 @@ class MessageBoard extends controller{
       $content = Db::name("NewsContent")->find();
       $hot_news = Db::name("HotNews")->find();
       $videos = Db::name("Videos")->select();
+     $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
       $this->view->assign('content', $content);
       $this->view->assign('videos', $videos);
       $this->view->assign('hot_news', $hot_news);
+      $this->view->assign('videos_top', $videos_top);
 
       $id = $post['id'];
 

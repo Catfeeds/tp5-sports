@@ -9,7 +9,7 @@ use think\Session;
 use think\Config;
 use think\Request;
 
-class ChinaTeam extends controller{
+class ChinaTeams extends controller{
 
     public function index () {
       $request = Request::instance();
@@ -17,9 +17,11 @@ class ChinaTeam extends controller{
 
      	$videos = Db::name("Videos")->select();
       $china_teams = Db::name("ChinaTeam")->select();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
       
      	$this->view->assign('videos', $videos);
       $this->view->assign('china_teams', $china_teams);
+      $this->view->assign('videos_top', $videos_top);
 
 
       return $this->view->fetch();
@@ -38,10 +40,12 @@ class ChinaTeam extends controller{
       $china_team_detail = Db::name("ChinaTeamDetail")->where("team_id", $id)->find();
       $videos = Db::name("Videos")->select();
       $china_teams = Db::name("ChinaTeam")->where("id", $id)->find();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
       $this->view->assign('china_team_detail', $china_team_detail);
       $this->view->assign('videos', $videos);
       $this->view->assign('china_teams', $china_teams);
+      $this->view->assign('videos_top', $videos_top);
 
       return $this->view->fetch();
     }

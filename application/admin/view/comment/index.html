@@ -28,7 +28,6 @@
 <body>
   <div id="wrapper">
 
-  <include file="Index/nav"/>
   <div id="page-wrapper" style="margin-top: 20px;">
 
     <div class="container-fluid" >
@@ -39,7 +38,7 @@
 
           <ol class="breadcrumb">
             <li class="active">
-              <i class="fa fa-table"></i>  中国队列表
+              <i class="fa fa-table"></i>  文档列表
             </li>
           </ol>
         </div>
@@ -55,7 +54,7 @@
         style="margin-bottom: 20px;"
       >
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        添加文章
+        添加资料库
       </button>
 
       <div class="row">
@@ -74,12 +73,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                {volist name="china_teams" id="vo"}
+                {volist name="comments" id="vo"}
                   <tr>
                       <td>{$vo.id}</td>
                       <td>{$vo.title}</td>
-                      <td>{$vo.info}</td>
-                      <td>{$vo.time|date='Y-m-d H:i:s',###}</td>
+                      <td>{$vo.content}</td>
+                      <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
                       <td>
                         <span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$vo.id}" ></span>
 
@@ -87,7 +86,7 @@
                           <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                         </a>
 
-                        <a target="_blank" href="/index/china_teams/detail?id={$vo.id}" class="sing_cursor glyphicon glyphicon-eye-open" aria-hidden="true"></a>
+                        <a target="_blank" href="/index/info_download/detail?id={$vo.id}" class="sing_cursor glyphicon glyphicon-eye-open" aria-hidden="true"></a>
                       </td>
                   </tr>
                 {/volist}
@@ -117,9 +116,9 @@
 </div>
 <script>
   var SCOPE = {
-    'edit_url' : '/index.php/admin/china_team/edit',
-    'add_url' : '/index.php/admin/china_team/add',
-    'set_status_url' : '/index.php/admin/china_team/setStatus',
+    'edit_url' : '/index.php/admin/comment/edit',
+    'add_url' : '/index.php/admin/comment/add',
+    'set_status_url' : '/index.php/admin/comment/setStatus',
     'sing_news_view_url' : '/index.php/view',
     'listorder_url' : '/index.php/admin/content/listorder',
     'push_url' : '/index.php/admin/content/push',

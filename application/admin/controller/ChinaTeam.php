@@ -29,12 +29,12 @@ class ChinaTeam extends Controller
     use \app\admin\traits\controller\Controller;
 
     public function index() {
-        $hot_news = Db::name("HotNews")->where('status', 'neq', 1)->paginate(5);
+        $china_teams = Db::name("ChinaTeam")->where('status','neq',1)->paginate(5);
         
         // 获取分页显示
-        $page = $hot_news->render();
+        $page = $china_teams->render();
 
-        $this->view->assign('hot_news', $hot_news);
+        $this->view->assign('china_teams', $china_teams);
         $this->view->assign('page', $page);
 
         return $this->view->fetch();
@@ -45,24 +45,23 @@ class ChinaTeam extends Controller
             $request = Request::instance();
             $post = $request->param();
 
-            if($post['news_id']) {
+            if($post['team_id']) {
                 return $this->save($post);
             }
 
             $data = [
-                'news_name' => $post['title'],
-                'thumb' => $post['thumb'],
-                'newsinfo' => $post['small_title'],
-                'is_top' => $post['is_top'],
+                'title' => $post['title'],
+                'info' => $post['info'],
                 'time' => time(),
+                'status' => '0',
             ];
 
-            $newsId = Db::name("HotNews")->insertGetId($data);
+            $newsId = Db::name("ChinaTeam")->insertGetId($data);
 
             if($newsId) {
-                $newsContentData['content'] = $_POST['content'];
-                $newsContentData['news_id'] = $newsId;
-                $cId = Db::name("NewsContent")->insert($newsContentData);
+                $newsContentData['content'] = $post['content'];
+                $newsContentData['team_id'] = $newsId;
+                $cId = Db::name("ChinaTeamDetail")->insert($newsContentData);
                 if($cId){
                     return show(1,'新增成功');
                 }else{
@@ -85,33 +84,32 @@ class ChinaTeam extends Controller
             return show(0, 'ID 没有');
         }
 
-        $news = Db::name("HotNews")->where('id',$id)->find();
-        $content = Db::name("NewsContent")->where('news_id',$id)->find();
+        $news = Db::name("ChinaTeam")->where('id',$id)->find();
+        $content = Db::name("ChinaTeamDetail")->where('team_id',$id)->find();
 
 
-        $this->view->assign('news', $news);
+        $this->view->assign('china_teams', $news);
         $this->view->assign('content', $content);
 
         return $this->view->fetch();
     }
 
     public function save($data) {
-        $newsId = $data['news_id'];
+        $newsId = $data['team_id'];
 
         $res_data = [
-            'news_name' => $data['title'],
-            'thumb' => $data['thumb'],
-            'newsinfo' => $data['small_title'],
-            'is_top' => $data['is_top'],
+            'title' => $data['title'],
+            'info' => $data['info'],
             'time' => time(),
+            'status' => '0',
         ];
 
         try {
-            $res_id = Db::name("HotNews")->where("id", $newsId)->update($res_data);
+            $res_id = Db::name("ChinaTeam")->where("id", $newsId)->update($res_data);
 
             $newsContentData['content'] = $data['content'];
 
-            $condId =  Db::name("NewsContent")->where("news_id", $newsId)->update($newsContentData);
+            $condId =  Db::name("ChinaTeamDetail")->where("team_id", $newsId)->update($newsContentData);
 
             if($res_id === false || $condId === false) {
                 return show(0, '更新失败');
@@ -140,7 +138,7 @@ class ChinaTeam extends Controller
                     'status' => 1
                 ];
 
-                $news = Db::name("HotNews")->where('id',$id)->update($data);
+                $news = Db::name("ChinaTeam")->where('id',$id)->update($data);
                 
                 if ($news) {
                     return show(1, '操作成功');

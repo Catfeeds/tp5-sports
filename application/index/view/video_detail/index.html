@@ -30,8 +30,8 @@
 							<a href='/index/hot_news'>热点新闻</a>
 						</div>
 
-						<div id="atitle">{$hot_news.news_name}</div>
-						<div class="c01"align="center">{$hot_news.time|date='Y-m-d H:i:s',###}
+						<div id="atitle">{$videosDetail.video_name}</div>
+						<div class="c01" align="center">{$videosDetail.video_time|date='Y-m-d H:i:s',###}
 						</div>
 
 						<div id="vogate_ad_area">
@@ -39,16 +39,15 @@
 								<div style="text-align: center;margin: 10px 0px">
 									<a href="javascript:;" id="img_div" style="text-align: center;">
 										<img
-											src="http://tp5.cli.me//uploads/picture/20181216/a378404df8278a481a96671b9bbfb4c4.png"
+											src="{$videosDetail.video_thumb}"
 											alt=""
 											style="width: 400px;height: 300px;" 
 										/>
 									</a>
 								</div>
-
 								{$content.content}
 							</div>
-						</div>（责任编辑：杨宝岩）
+						</div>
 					</div>
 
 					<div class="space1"></div>

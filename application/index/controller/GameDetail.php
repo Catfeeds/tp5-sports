@@ -22,13 +22,16 @@ class GameDetail extends controller{
       }
 
       $content = Db::name("GamesDetail")->where('games_id',$id)->find();
-
       $games = Db::name("Games")->where('id',$id)->find();
       $videos = Db::name("Videos")->where('is_top','neq',1)->select();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
+
 
      	$this->view->assign('content', $content);
      	$this->view->assign('videos', $videos);
      	$this->view->assign('games', $games);
+      $this->view->assign('videos_top', $videos_top);
+
 
       return $this->view->fetch();
     }

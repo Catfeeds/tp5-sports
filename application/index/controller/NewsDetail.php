@@ -23,15 +23,14 @@ class NewsDetail extends controller{
       }
 
       $content = Db::name("NewsContent")->where('news_id',$id)->find();
-
       $hot_news = Db::name("HotNews")->where('id',$id)->find();
-
-
      	$videos = Db::name("Videos")->where('is_top','neq',1)->select();
+      $videos_top = Db::name("Videos")->where('is_top','eq',1)->find();
 
      	$this->view->assign('content', $content);
      	$this->view->assign('videos', $videos);
      	$this->view->assign('hot_news', $hot_news);
+      $this->view->assign('videos_top', $videos_top);
 
       return $this->view->fetch();
 
